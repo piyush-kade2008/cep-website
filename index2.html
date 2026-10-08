@@ -1,0 +1,3056 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Government Schemes information portal for Gram Panchayat Nandapuri - Community Engagement Project by KITS Ramtek."
+  >
+
+  <title>
+    Government Schemes – Gram Panchayat Nandapuri | KITS Ramtek
+  </title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       ROOT VARIABLES
+    ===================================================== */
+
+    :root {
+      --navy: #12305c;
+      --navy-deep: #0b1f3d;
+
+      --saffron: #e8891c;
+      --saffron-soft: #fdf1e2;
+
+      --green: #1f7a4d;
+      --green-soft: #eaf7ef;
+
+      --blue-soft: #edf4ff;
+
+      --ink: #1d2433;
+      --muted: #5b6577;
+
+      --line: #e3e7ee;
+
+      --bg: #f6f7fb;
+      --card: #ffffff;
+
+      --radius: 16px;
+
+      --shadow:
+        0 10px 30px rgba(18, 48, 92, 0.08);
+
+      --font: "Inter", sans-serif;
+      --dev-font: "Noto Sans Devanagari", sans-serif;
+      --serif: "Noto Serif", serif;
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255,255,255,0.97);
+
+      border-bottom: 1px solid var(--line);
+
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      font-weight: 800;
+
+      color: var(--navy);
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+
+      object-fit: contain;
+
+      border-radius: 8px;
+    }
+
+    .brand span {
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .nav-links > a {
+      color: var(--muted);
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: 0.2s;
+    }
+
+    .nav-links > a:hover {
+      color: var(--navy);
+    }
+
+
+    /* LANGUAGE */
+
+    .lang {
+      display: flex;
+
+      gap: 4px;
+
+      padding: 4px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 10px;
+
+      background: white;
+    }
+
+    .lang button {
+      border: 0;
+
+      background: transparent;
+
+      padding: 6px 8px;
+
+      border-radius: 7px;
+
+      cursor: pointer;
+
+      font-size: 12px;
+
+      font-weight: 600;
+    }
+
+    .lang button.active {
+      background: var(--navy);
+      color: white;
+    }
+
+
+    /* MOBILE MENU */
+
+    .menu-btn {
+      display: none;
+
+      border: 0;
+
+      background: transparent;
+
+      font-size: 26px;
+
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .intro {
+      padding: 75px 0 60px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(18,48,92,0.98),
+          rgba(11,31,61,0.98)
+        );
+
+      color: white;
+    }
+
+    .intro-grid {
+      display: grid;
+
+      grid-template-columns: 1.2fr 0.8fr;
+
+      align-items: center;
+
+      gap: 50px;
+    }
+
+    .intro-logo {
+      width: 90px;
+      height: 90px;
+
+      object-fit: contain;
+
+      margin-bottom: 20px;
+
+      border-radius: 12px;
+    }
+
+    .intro h1 {
+      font-size: clamp(32px, 5vw, 58px);
+
+      line-height: 1.08;
+
+      margin-bottom: 18px;
+    }
+
+    .intro h2 {
+      font-size: 20px;
+
+      font-weight: 600;
+
+      color: #e9eef8;
+
+      margin-bottom: 12px;
+    }
+
+    .intro p {
+      color: #d7dfec;
+
+      max-width: 700px;
+    }
+
+
+    /* GUIDE CARD */
+
+    .guide-card {
+      background: white;
+
+      color: var(--ink);
+
+      border-radius: var(--radius);
+
+      padding: 24px;
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.18);
+    }
+
+    .guide-card img {
+      width: 100%;
+
+      height: 320px;
+
+      object-fit: cover;
+
+      border-radius: 12px;
+
+      margin-bottom: 18px;
+    }
+
+    .guide-card h3 {
+      color: var(--navy);
+
+      margin-bottom: 5px;
+    }
+
+    .guide-card p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       COMMON SECTION
+    ===================================================== */
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: var(--saffron);
+
+      font-weight: 700;
+
+      font-size: 14px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+    .section-title h2 {
+      color: var(--navy);
+
+      font-size: clamp(28px,4vw,40px);
+
+      margin: 8px 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+
+      max-width: 750px;
+
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       BUTTON
+    ===================================================== */
+
+    .btn {
+      display: inline-block;
+
+      padding: 11px 17px;
+
+      border-radius: 10px;
+
+      background: var(--navy);
+
+      color: white;
+
+      font-weight: 700;
+
+      border: 0;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background: var(--navy-deep);
+
+      transform: translateY(-2px);
+    }
+
+    .btn-orange {
+      background: var(--saffron);
+    }
+
+    .btn-orange:hover {
+      background: #c9700e;
+    }
+
+
+    /* =====================================================
+       TEAM
+    ===================================================== */
+
+    .team-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 22px;
+    }
+
+    .team-card {
+      background: var(--card);
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .team-card img {
+      width: 100%;
+
+      height: 270px;
+
+      object-fit: cover;
+    }
+
+    .team-info {
+      padding: 18px;
+    }
+
+    .team-info h3 {
+      color: var(--navy);
+
+      font-size: 18px;
+
+      margin-bottom: 4px;
+    }
+
+    .team-info p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .role {
+      display: inline-block;
+
+      margin-top: 10px;
+
+      padding: 5px 9px;
+
+      border-radius: 20px;
+
+      background: var(--saffron-soft);
+
+      color: #a75a00;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       VILLAGE
+    ===================================================== */
+
+    .village {
+      background: white;
+    }
+
+    .village-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .village-content h2 {
+      color: var(--navy);
+
+      font-size: 36px;
+
+      margin-bottom: 15px;
+    }
+
+    .village-content p {
+      color: var(--muted);
+
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 15px;
+
+      margin-top: 25px;
+    }
+
+    .stat {
+      padding: 20px;
+
+      background: var(--bg);
+
+      border-radius: 12px;
+
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 28px;
+
+      color: var(--navy);
+    }
+
+    .stat span {
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .village-box {
+      min-height: 350px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(18,48,92,0.9),
+          rgba(31,122,77,0.85)
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 40px;
+    }
+
+    .village-box h3 {
+      font-size: 45px;
+    }
+
+
+    /* =====================================================
+       GOVERNMENT SCHEMES
+    ===================================================== */
+
+    .scheme-tools {
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      max-width: 750px;
+
+      margin: auto;
+
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+
+      padding: 17px 20px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 12px;
+
+      outline: none;
+
+      background: white;
+
+      font-size: 15px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .search-box input:focus {
+      border-color: var(--navy);
+    }
+
+
+    /* MYSCHEME PORTAL */
+
+    .scheme-portal {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+      padding: 28px 30px;
+
+      margin-bottom: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #12305c,
+          #1f7a4d
+        );
+
+      color: white;
+
+      border-radius: 16px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .scheme-portal h3 {
+      margin: 5px 0;
+
+      font-size: 22px;
+    }
+
+    .scheme-portal p {
+      color: #e5edf7;
+
+      font-size: 14px;
+
+      max-width: 750px;
+    }
+
+    .portal-label {
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      color: #ffd28c;
+    }
+
+
+    /* CATEGORY CHIPS */
+
+    .chips {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      margin-top: 18px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+
+      background: white;
+
+      padding: 8px 14px;
+
+      border-radius: 30px;
+
+      cursor: pointer;
+
+      font-size: 13px;
+
+      color: var(--muted);
+
+      transition: 0.2s;
+    }
+
+    .chip.active,
+    .chip:hover {
+      background: var(--navy);
+
+      color: white;
+
+      border-color: var(--navy);
+    }
+
+
+    /* SCHEME GRID */
+
+    #grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 22px;
+    }
+
+    .scheme-card {
+      background: white;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      padding: 24px;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    .scheme-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .scheme-card h3 {
+      color: var(--navy);
+
+      margin-bottom: 10px;
+    }
+
+    .scheme-card p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      flex: 1;
+    }
+
+    .category {
+      display: inline-block;
+
+      align-self: flex-start;
+
+      margin-bottom: 12px;
+
+      padding: 5px 9px;
+
+      background: var(--blue-soft);
+
+      color: var(--navy);
+
+      border-radius: 20px;
+
+      font-size: 11px;
+
+      font-weight: 700;
+    }
+
+    .scheme-actions {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 20px;
+    }
+
+    .scheme-actions .btn {
+      font-size: 12px;
+
+      padding: 10px 13px;
+    }
+
+
+    /* EMPTY */
+
+    #empty {
+      display: none;
+
+      text-align: center;
+
+      padding: 40px;
+
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       INFORMATION
+    ===================================================== */
+
+    .info {
+      background: white;
+    }
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 20px;
+    }
+
+    .info-card {
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      padding: 25px;
+
+      background: var(--card);
+    }
+
+    .info-card h3 {
+      color: var(--navy);
+
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      background: var(--navy-deep);
+
+      color: white;
+
+      padding: 50px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.3fr 1fr 1fr;
+
+      gap: 40px;
+
+      margin-bottom: 40px;
+    }
+
+    footer h3 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #bfc9d9;
+
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top:
+        1px solid rgba(255,255,255,0.15);
+
+      padding-top: 20px;
+
+      text-align: center;
+
+      color: #aeb9ca;
+
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       DIALOG
+    ===================================================== */
+
+    dialog {
+      border: 0;
+
+      border-radius: 16px;
+
+      padding: 30px;
+
+      width: min(600px,90%);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+
+      margin: auto;
+    }
+
+    dialog::backdrop {
+      background: rgba(0,0,0,0.55);
+    }
+
+    #detailContent h2 {
+      color: var(--navy);
+
+      margin-bottom: 10px;
+    }
+
+    #detailContent h4 {
+      color: var(--green);
+
+      margin-top: 15px;
+    }
+
+    #detailContent p {
+      color: var(--muted);
+
+      margin-top: 5px;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+    }
+
+
+    /* =====================================================
+       REVEAL ANIMATION
+    ===================================================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      transition: 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width:1000px) {
+
+      .team-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .info-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      #grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .intro-grid,
+      .village-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width:760px) {
+
+      .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: white;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        border-bottom:
+          1px solid var(--line);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .brand span {
+        font-size: 15px;
+      }
+
+      .intro {
+        padding: 55px 0 40px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .team-grid,
+      .info-grid,
+      #grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-card img {
+        height: 280px;
+      }
+
+      .scheme-portal {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      .scheme-portal .btn {
+        width: 100%;
+
+        text-align: center;
+      }
+
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media (max-width:450px) {
+
+      .brand img {
+        width: 38px;
+        height: 38px;
+      }
+
+      .intro h1 {
+        font-size: 32px;
+      }
+
+      .village-content h2 {
+        font-size: 28px;
+      }
+
+      .village-box h3 {
+        font-size: 32px;
+      }
+
+      .lang button {
+        padding: 5px 6px;
+      }
+
+      .scheme-actions {
+        flex-direction: column;
+      }
+
+      .scheme-actions .btn {
+        width: 100%;
+
+        text-align: center;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="topbar">
+
+  <div class="container nav">
+
+    <a href="#intro" class="brand">
+
+      <img
+        src="img7.jpeg"
+        alt="KITS Ramtek Logo"
+      >
+
+      <span>Nandapuri Schemes</span>
+
+    </a>
+
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+    >
+      ☰
+    </button>
+
+
+    <nav
+      class="nav-links"
+      id="navLinks"
+    >
+
+      <a href="#intro">
+        Home
+      </a>
+
+      <a href="#team">
+        Project Team
+      </a>
+
+      <a href="#village">
+        Nandapuri
+      </a>
+
+      <a href="#schemes">
+        Government Schemes
+      </a>
+
+      <a href="#info">
+        Information
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+
+      <div class="lang">
+
+        <button
+          class="active"
+          data-lang="en"
+        >
+          English
+        </button>
+
+        <button
+          data-lang="mr"
+        >
+          मराठी
+        </button>
+
+        <button
+          data-lang="hi"
+        >
+          हिंदी
+        </button>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+  class="intro"
+  id="intro"
+>
+
+  <div class="container intro-grid">
+
+
+    <div class="reveal">
+
+      <img
+        class="intro-logo"
+        src="img7.jpeg"
+        alt="KITS Ramtek Emblem"
+      >
+
+
+      <h2>
+        Kavikulguru Institute of Technology and Science, Ramtek
+      </h2>
+
+
+      <h1 data-i18n="heroTitle">
+
+        Government Schemes
+        <br>
+        Gram Panchayat Nandapuri
+
+      </h1>
+
+
+      <p data-i18n="heroText">
+
+        A Community Engagement Project by the
+        Department of Computer Technology, KITS Ramtek.
+        This website provides information about important
+        government schemes for citizens.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="guide-card reveal">
+
+      <img
+        id="img1"
+        src="img6.jpeg"
+        alt="Project Guide"
+      >
+
+
+      <h3>
+        Mrs. Anjali V. Narad
+      </h3>
+
+
+      <p>
+        M.A., Ph.D. – Assistant Professor, KITS Ramtek
+      </p>
+
+
+      <span class="role">
+        Project Guide
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECT TEAM
+===================================================== -->
+
+<section id="team">
+
+  <div class="container">
+
+
+    <div class="section-title reveal">
+
+      <span>
+        Our Team
+      </span>
+
+      <h2>
+        Project Team
+      </h2>
+
+      <p>
+        Students of the Department of Computer Technology,
+        KITS Ramtek working on the Community Engagement Project.
+      </p>
+
+    </div>
+
+
+
+    <div class="team-grid">
+
+
+      <!-- MEMBER 1 -->
+
+      <div class="team-card reveal">
+
+        <img
+          id="img2"
+          src="img3.jpeg"
+          alt="Gunjan Hingwe"
+        >
+
+        <div class="team-info">
+
+          <h3>
+            Gunjan Hingwe
+          </h3>
+
+          <p>
+            Roll No.: ES25041
+          </p>
+
+          <span class="role">
+            Team Member
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- MEMBER 2 -->
+
+      <div class="team-card reveal">
+
+        <img
+          id="img3"
+          src="img2.jpeg"
+          alt="Atharv Bhople"
+        >
+
+        <div class="team-info">
+
+          <h3>
+            Atharv Bhople
+          </h3>
+
+          <p>
+            Roll No.: ES25050
+          </p>
+
+          <span class="role">
+            Team Member
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- MEMBER 3 -->
+
+      <div class="team-card reveal">
+
+        <img
+          id="img4"
+          src="img4.jpeg"
+          alt="Harshdeep Dekhmukh"
+        >
+
+        <div class="team-info">
+
+          <h3>
+            Harshdeep Dekhmukh
+          </h3>
+
+          <p>
+            Roll No.: ES25054
+          </p>
+
+          <span class="role">
+            Team Member
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- MEMBER 4 -->
+
+      <div class="team-card reveal">
+
+        <img
+          id="img5"
+          src="img1.jpeg"
+          alt="Sakshi Yele"
+        >
+
+        <div class="team-info">
+
+          <h3>
+            Sakshi Yele
+          </h3>
+
+          <p>
+            Roll No.: ES25058
+          </p>
+
+          <span class="role">
+            Team Member
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VILLAGE
+===================================================== -->
+
+<section
+  class="village"
+  id="village"
+>
+
+  <div class="container village-grid">
+
+
+    <div class="village-content reveal">
+
+      <span
+        style="
+          color:var(--saffron);
+          font-weight:700;
+          text-transform:uppercase;
+          letter-spacing:1px;
+        "
+      >
+        Gram Panchayat
+      </span>
+
+
+      <h2>
+        Nandapuri Village
+      </h2>
+
+
+      <p>
+        This project aims to make government scheme information
+        easily accessible to the people of Gram Panchayat Nandapuri.
+        Citizens can explore different schemes, understand their
+        benefits and visit official government websites.
+      </p>
+
+
+      <a
+        href="#schemes"
+        class="btn btn-orange"
+      >
+        Explore Schemes
+      </a>
+
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <strong>
+            01
+          </strong>
+
+          <span>
+            Gram Panchayat
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            05
+          </strong>
+
+          <span>
+            Project Members
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            03
+          </strong>
+
+          <span>
+            Languages
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="village-box reveal">
+
+      <div>
+
+        <h3>
+          Nandapuri
+        </h3>
+
+        <p>
+          Community Engagement Project
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GOVERNMENT SCHEMES
+===================================================== -->
+
+<section id="schemes">
+
+  <div class="container">
+
+
+    <div class="section-title reveal">
+
+      <span>
+        Government Schemes
+      </span>
+
+      <h2>
+        Find the Right Scheme
+      </h2>
+
+      <p>
+        Search government schemes, filter them by category
+        and visit their official government websites.
+      </p>
+
+    </div>
+
+
+
+    <!-- OFFICIAL GOVERNMENT PORTAL -->
+
+    <div class="scheme-portal reveal">
+
+      <div>
+
+        <span class="portal-label">
+          OFFICIAL GOVERNMENT SCHEME FINDER
+        </span>
+
+
+        <h3>
+          myScheme – Government Scheme Finder
+        </h3>
+
+
+        <p>
+          Find Central Government and State/UT government schemes,
+          check eligibility, understand benefits and access
+          application information.
+        </p>
+
+      </div>
+
+
+      <a
+        href="https://www.myscheme.gov.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-orange"
+      >
+        Find All Schemes ↗
+      </a>
+
+    </div>
+
+
+
+    <!-- SEARCH -->
+
+    <div class="scheme-tools reveal">
+
+      <div class="search-box">
+
+        <input
+          type="search"
+          id="search"
+          placeholder="🔎 Search government schemes..."
+          aria-label="Search government schemes"
+        >
+
+      </div>
+
+
+
+      <!-- FILTERS -->
+
+      <div class="chips">
+
+        <button
+          class="chip active"
+          data-category="all"
+        >
+          All
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="agriculture"
+        >
+          Agriculture
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="education"
+        >
+          Education
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="health"
+        >
+          Health
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="women"
+        >
+          Women & Child
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="housing"
+        >
+          Housing
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="banking"
+        >
+          Banking
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="employment"
+        >
+          Employment
+        </button>
+
+
+        <button
+          class="chip"
+          data-category="sanitation"
+        >
+          Sanitation
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- SCHEME GRID -->
+
+    <div id="grid">
+
+
+      <!-- PM KISAN -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="agriculture"
+      >
+
+        <span class="category">
+          Agriculture
+        </span>
+
+
+        <h3>
+          PM-KISAN Samman Nidhi
+        </h3>
+
+
+        <p>
+          Financial support scheme for eligible land-holding
+          farmer families.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('pmkisan')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://pmkisan.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PMAY -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="housing"
+      >
+
+        <span class="category">
+          Housing
+        </span>
+
+
+        <h3>
+          Pradhan Mantri Awas Yojana
+        </h3>
+
+
+        <p>
+          Government housing support for eligible beneficiaries
+          under the PMAY housing programme.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('pmay')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://www.pmaymis.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- JAN DHAN -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="banking"
+      >
+
+        <span class="category">
+          Banking
+        </span>
+
+
+        <h3>
+          Pradhan Mantri Jan Dhan Yojana
+        </h3>
+
+
+        <p>
+          Financial inclusion programme providing access to
+          basic banking and financial services.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('jandhan')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://pmjdy.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- AYUSHMAN BHARAT -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="health"
+      >
+
+        <span class="category">
+          Health
+        </span>
+
+
+        <h3>
+          Ayushman Bharat PM-JAY
+        </h3>
+
+
+        <p>
+          Health assurance scheme providing eligible families
+          access to cashless healthcare services at empanelled
+          hospitals.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('ayushman')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://pmjay.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- BETI BACHAO -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="women"
+      >
+
+        <span class="category">
+          Women & Child
+        </span>
+
+
+        <h3>
+          Beti Bachao Beti Padhao
+        </h3>
+
+
+        <p>
+          Government initiative focused on the value, education
+          and empowerment of the girl child.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('beti')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://wcd.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SCHOLARSHIP -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="education"
+      >
+
+        <span class="category">
+          Education
+        </span>
+
+
+        <h3>
+          National Scholarship Portal
+        </h3>
+
+
+        <p>
+          Government scholarship platform where eligible students
+          can find and apply for various scholarships.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('scholarship')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://scholarships.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- MGNREGA -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="employment"
+      >
+
+        <span class="category">
+          Employment
+        </span>
+
+
+        <h3>
+          MGNREGA
+        </h3>
+
+
+        <p>
+          Rural employment programme providing wage employment
+          subject to the conditions of the programme.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('mgnrega')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://nrega.nic.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- UJJWALA -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="women"
+      >
+
+        <span class="category">
+          Women
+        </span>
+
+
+        <h3>
+          PM Ujjwala Yojana
+        </h3>
+
+
+        <p>
+          Government scheme supporting eligible households
+          with access to LPG connections.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('ujjwala')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://www.pmuy.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SWACHH BHARAT -->
+
+      <div
+        class="scheme-card reveal"
+        data-category="sanitation"
+      >
+
+        <span class="category">
+          Sanitation
+        </span>
+
+
+        <h3>
+          Swachh Bharat Mission
+        </h3>
+
+
+        <p>
+          National cleanliness and sanitation programme covering
+          sanitation and waste management initiatives.
+        </p>
+
+
+        <div class="scheme-actions">
+
+          <button
+            class="btn"
+            onclick="showScheme('swachh')"
+          >
+            View Details
+          </button>
+
+
+          <a
+            href="https://swachhbharatmission.ddws.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange"
+          >
+            Official Website ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- EMPTY SEARCH -->
+
+    <div id="empty">
+
+      <h3>
+        No government scheme found.
+      </h3>
+
+      <p>
+        Try another search or select a different category.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFORMATION
+===================================================== -->
+
+<section
+  class="info"
+  id="info"
+>
+
+  <div class="container">
+
+
+    <div class="section-title reveal">
+
+      <span>
+        Information
+      </span>
+
+      <h2>
+        Important Information
+      </h2>
+
+      <p>
+        Keep the following points in mind while applying
+        for government schemes.
+      </p>
+
+    </div>
+
+
+
+    <div class="info-grid">
+
+
+      <div class="info-card reveal">
+
+        <h3>
+          Eligibility
+        </h3>
+
+        <p>
+          Check the eligibility conditions of the scheme
+          before submitting your application.
+        </p>
+
+      </div>
+
+
+      <div class="info-card reveal">
+
+        <h3>
+          Documents
+        </h3>
+
+        <p>
+          Keep Aadhaar card, bank details, income certificate
+          and other required documents ready.
+        </p>
+
+      </div>
+
+
+      <div class="info-card reveal">
+
+        <h3>
+          Application
+        </h3>
+
+        <p>
+          Apply through the official government portal
+          or visit the concerned Gram Panchayat office.
+        </p>
+
+      </div>
+
+
+      <div class="info-card reveal">
+
+        <h3>
+          Verification
+        </h3>
+
+        <p>
+          Provide correct information and complete verification
+          whenever required.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer id="contact">
+
+  <div class="container">
+
+
+    <div class="footer-grid">
+
+
+      <div>
+
+        <h3>
+          Nandapuri Schemes
+        </h3>
+
+        <p>
+          Government Schemes information portal created
+          as part of the Community Engagement Project
+          by KITS Ramtek.
+        </p>
+
+      </div>
+
+
+
+      <div>
+
+        <h3>
+          Quick Links
+        </h3>
+
+        <p>
+          <a href="#intro">
+            Home
+          </a>
+        </p>
+
+        <p>
+          <a href="#team">
+            Project Team
+          </a>
+        </p>
+
+        <p>
+          <a href="#schemes">
+            Government Schemes
+          </a>
+        </p>
+
+        <p>
+          <a href="#info">
+            Important Information
+          </a>
+        </p>
+
+      </div>
+
+
+
+      <div>
+
+        <h3>
+          College
+        </h3>
+
+        <p>
+          Kavikulguru Institute of Technology and Science,
+          Ramtek
+        </p>
+
+        <p>
+          Department of Computer Technology
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      © 2026 KITS Ramtek Community Engagement Project.
+      All Rights Reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     DETAILS POPUP
+===================================================== -->
+
+<dialog id="detail">
+
+  <div id="detailContent">
+  </div>
+
+
+  <button
+    class="btn close-btn"
+    onclick="document.getElementById('detail').close()"
+  >
+    Close
+  </button>
+
+</dialog>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const navLinks =
+  document.getElementById("navLinks");
+
+
+menuBtn.addEventListener(
+  "click",
+  function() {
+
+    navLinks.classList.toggle("show");
+
+  }
+);
+
+
+document
+  .querySelectorAll(".nav-links > a")
+  .forEach(function(link) {
+
+    link.addEventListener(
+      "click",
+      function() {
+
+        navLinks.classList.remove("show");
+
+      }
+    );
+
+  });
+
+
+
+/* =====================================================
+   SEARCH + CATEGORY FILTER
+===================================================== */
+
+const searchInput =
+  document.getElementById("search");
+
+const chips =
+  document.querySelectorAll(".chip");
+
+const cards =
+  document.querySelectorAll(".scheme-card");
+
+const empty =
+  document.getElementById("empty");
+
+
+let selectedCategory = "all";
+
+
+function filterSchemes() {
+
+  const searchText =
+    searchInput.value
+      .toLowerCase()
+      .trim();
+
+
+  let visibleCount = 0;
+
+
+  cards.forEach(function(card) {
+
+    const text =
+      card.innerText.toLowerCase();
+
+    const category =
+      card.dataset.category;
+
+
+    const matchesSearch =
+      text.includes(searchText);
+
+
+    const matchesCategory =
+      selectedCategory === "all" ||
+      category === selectedCategory;
+
+
+    if (
+      matchesSearch &&
+      matchesCategory
+    ) {
+
+      card.style.display = "flex";
+
+      visibleCount++;
+
+    }
+    else {
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+
+  if (visibleCount === 0) {
+
+    empty.style.display = "block";
+
+  }
+  else {
+
+    empty.style.display = "none";
+
+  }
+
+}
+
+
+searchInput.addEventListener(
+  "input",
+  filterSchemes
+);
+
+
+
+chips.forEach(function(chip) {
+
+  chip.addEventListener(
+    "click",
+    function() {
+
+      chips.forEach(function(c) {
+
+        c.classList.remove("active");
+
+      });
+
+
+      this.classList.add("active");
+
+
+      selectedCategory =
+        this.dataset.category;
+
+
+      filterSchemes();
+
+    }
+  );
+
+});
+
+
+
+/* =====================================================
+   SCHEME DETAILS
+===================================================== */
+
+const schemes = {
+
+  pmkisan: {
+
+    title:
+      "PM-KISAN Samman Nidhi",
+
+    category:
+      "Agriculture",
+
+    description:
+      "PM-KISAN is a Government of India income support scheme for eligible land-holding farmer families.",
+
+    eligibility:
+      "Eligibility depends on the official PM-KISAN guidelines and exclusion conditions.",
+
+    documents:
+      "Commonly required information includes Aadhaar details, bank account details and land-related information.",
+
+    website:
+      "https://pmkisan.gov.in/"
+
+  },
+
+
+  pmay: {
+
+    title:
+      "Pradhan Mantri Awas Yojana",
+
+    category:
+      "Housing",
+
+    description:
+      "PMAY supports eligible beneficiaries through government housing programmes.",
+
+    eligibility:
+      "Eligibility depends on the applicable PMAY component and government guidelines.",
+
+    documents:
+      "Documents can include identity, address, income and other scheme-specific documents.",
+
+    website:
+      "https://www.pmaymis.gov.in/"
+
+  },
+
+
+  jandhan: {
+
+    title:
+      "Pradhan Mantri Jan Dhan Yojana",
+
+    category:
+      "Banking",
+
+    description:
+      "PMJDY promotes financial inclusion by providing access to basic banking and financial services.",
+
+    eligibility:
+      "Bank account opening is subject to the applicable banking and government rules.",
+
+    documents:
+      "Identity and address documents may be required according to banking requirements.",
+
+    website:
+      "https://pmjdy.gov.in/"
+
+  },
+
+
+  ayushman: {
+
+    title:
+      "Ayushman Bharat PM-JAY",
+
+    category:
+      "Health",
+
+    description:
+      "PM-JAY provides health assurance benefits to eligible beneficiaries through empanelled healthcare providers.",
+
+    eligibility:
+      "Eligibility is determined according to the official PM-JAY beneficiary database and applicable rules.",
+
+    documents:
+      "Beneficiary identification and other documents may be required.",
+
+    website:
+      "https://pmjay.gov.in/"
+
+  },
+
+
+  beti: {
+
+    title:
+      "Beti Bachao Beti Padhao",
+
+    category:
+      "Women & Child",
+
+    description:
+      "Beti Bachao Beti Padhao is a government initiative focused on the education, empowerment and value of the girl child.",
+
+    eligibility:
+      "The programme operates through government initiatives and awareness activities.",
+
+    documents:
+      "Requirements depend on the specific service or programme being accessed.",
+
+    website:
+      "https://wcd.gov.in/"
+
+  },
+
+
+  scholarship: {
+
+    title:
+      "National Scholarship Portal",
+
+    category:
+      "Education",
+
+    description:
+      "The National Scholarship Portal provides information and application facilities for eligible scholarships.",
+
+    eligibility:
+      "Eligibility varies according to the specific scholarship.",
+
+    documents:
+      "Documents can include Aadhaar, academic records, income certificate and bank details depending on the scholarship.",
+
+    website:
+      "https://scholarships.gov.in/"
+
+  },
+
+
+  mgnrega: {
+
+    title:
+      "MGNREGA",
+
+    category:
+      "Employment",
+
+    description:
+      "MGNREGA provides a legal framework for wage employment to eligible rural households subject to programme conditions.",
+
+    eligibility:
+      "Eligibility and work provisions are governed by the MGNREGA programme rules.",
+
+    documents:
+      "Job card and other required local records may be required.",
+
+    website:
+      "https://nrega.nic.in/"
+
+  },
+
+
+  ujjwala: {
+
+    title:
+      "Pradhan Mantri Ujjwala Yojana",
+
+    category:
+      "Women",
+
+    description:
+      "PMUY supports eligible households in obtaining LPG connections through the designated process.",
+
+    eligibility:
+      "Eligibility is based on the current PMUY government guidelines.",
+
+    documents:
+      "Identity, address, household and other required documents may be needed.",
+
+    website:
+      "https://www.pmuy.gov.in/"
+
+  },
+
+
+  swachh: {
+
+    title:
+      "Swachh Bharat Mission",
+
+    category:
+      "Sanitation",
+
+    description:
+      "Swachh Bharat Mission focuses on sanitation, cleanliness and waste-management initiatives.",
+
+    eligibility:
+      "Specific benefits and services depend on the relevant programme component.",
+
+    documents:
+      "Documents depend on the particular service or local programme.",
+
+    website:
+      "https://swachhbharatmission.ddws.gov.in/"
+
+  }
+
+};
+
+
+
+function showScheme(id) {
+
+  const scheme =
+    schemes[id];
+
+
+  if (!scheme) return;
+
+
+  const content =
+    document.getElementById(
+      "detailContent"
+    );
+
+
+  content.innerHTML = `
+
+    <span class="category">
+      ${scheme.category}
+    </span>
+
+    <h2>
+      ${scheme.title}
+    </h2>
+
+    <p>
+      ${scheme.description}
+    </p>
+
+    <h4>
+      Eligibility
+    </h4>
+
+    <p>
+      ${scheme.eligibility}
+    </p>
+
+    <h4>
+      Required Documents
+    </h4>
+
+    <p>
+      ${scheme.documents}
+    </p>
+
+    <br>
+
+    <a
+      href="${scheme.website}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-orange"
+    >
+      Visit Official Website ↗
+    </a>
+
+  `;
+
+
+  document
+    .getElementById("detail")
+    .showModal();
+
+}
+
+
+
+/* =====================================================
+   CLOSE DIALOG WHEN CLICKING OUTSIDE
+===================================================== */
+
+const detail =
+  document.getElementById("detail");
+
+
+detail.addEventListener(
+  "click",
+  function(event) {
+
+    const rect =
+      detail.getBoundingClientRect();
+
+
+    const inside =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom;
+
+
+    if (!inside) {
+
+      detail.close();
+
+    }
+
+  }
+);
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const reveals =
+  document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+  new IntersectionObserver(
+    function(entries) {
+
+      entries.forEach(
+        function(entry) {
+
+          if (entry.isIntersecting) {
+
+            entry.target
+              .classList
+              .add("show");
+
+            revealObserver
+              .unobserve(entry.target);
+
+          }
+
+        }
+      );
+
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+
+reveals.forEach(
+  function(element) {
+
+    revealObserver.observe(element);
+
+  }
+);
+
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+const translations = {
+
+  en: {
+
+    heroTitle:
+      "Government Schemes<br>Gram Panchayat Nandapuri",
+
+    heroText:
+      "A Community Engagement Project by the Department of Computer Technology, KITS Ramtek. This website provides information about important government schemes for citizens."
+
+  },
+
+
+  mr: {
+
+    heroTitle:
+      "शासकीय योजना<br>ग्रामपंचायत नंदापुरी",
+
+    heroText:
+      "KITS रामटेकच्या संगणक तंत्रज्ञान विभागाचा समुदाय सहभाग प्रकल्प. या वेबसाइटवर नागरिकांसाठी महत्त्वाच्या शासकीय योजनांची माहिती उपलब्ध आहे."
+
+  },
+
+
+  hi: {
+
+    heroTitle:
+      "सरकारी योजनाएँ<br>ग्राम पंचायत नंदापुरी",
+
+    heroText:
+      "KITS रामटेक के कंप्यूटर टेक्नोलॉजी विभाग द्वारा सामुदायिक सहभागिता परियोजना। इस वेबसाइट पर नागरिकों के लिए महत्वपूर्ण सरकारी योजनाओं की जानकारी उपलब्ध है।"
+
+  }
+
+};
+
+
+
+const languageButtons =
+  document.querySelectorAll(
+    ".lang button"
+  );
+
+
+languageButtons.forEach(
+  function(button) {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        const language =
+          this.dataset.lang;
+
+
+        languageButtons.forEach(
+          function(btn) {
+
+            btn.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+        this.classList.add("active");
+
+
+        document.querySelector(
+          "[data-i18n='heroTitle']"
+        ).innerHTML =
+          translations[
+            language
+          ].heroTitle;
+
+
+        document.querySelector(
+          "[data-i18n='heroText']"
+        ).innerHTML =
+          translations[
+            language
+          ].heroText;
+
+
+        if (language === "mr") {
+
+          document.body.style.fontFamily =
+            '"Noto Sans Devanagari", sans-serif';
+
+        }
+        else if (language === "hi") {
+
+          document.body.style.fontFamily =
+            '"Noto Sans Devanagari", sans-serif';
+
+        }
+        else {
+
+          document.body.style.fontFamily =
+            '"Inter", sans-serif';
+
+        }
+
+      }
+    );
+
+  });
+
+
+</script>
+
+</body>
+</html>
+
